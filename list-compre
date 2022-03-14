@@ -1,0 +1,198 @@
+# Görev 1:
+
+x=8
+type(x)  #int
+
+y=3.2 
+type(y)  #float
+
+z = 8j + 18
+type(z)  #complex
+
+a = "Hello world"
+type(a)   #str
+
+b = True
+type(b)  #bool
+
+c = 23 < 22
+type(c)  #bool
+
+l = [1, 2, 3, 4]
+type(l)
+
+d = {"name": "jake",
+     "age": 27,
+     "address":"downtown"}   #dict
+     
+t = {"machine learning", "data science"}
+type(t)   #set
+
+s = {"python", "machine learning", "data science"}
+type(t)   #set
+
+
+# Görev 2:
+
+text = "The goal is to turn data into information, and information into insight."
+
+yeni_text = text.upper()
+yeni text
+
+yeni_text = yeni_text.replace(",", " ")
+yeni_text = yeni_text.replace(".", " ")
+yeni_text = yeni_text.split(" ")
+print(yeni_text)
+
+
+# Görev 3:
+
+lst = ["D","A","T","A","S","C","I","E","N","C","E"]
+
+len(lst)
+lst[0]
+lst[10]
+
+liste3 = lst[0:4]
+liste3
+
+lst.pop(8)
+lst
+
+lst.append("a")
+lst
+
+lst.insert(8,"N")
+lst
+
+
+# Görev 4:
+
+dicti = {"Christian": ["America", 18],
+         "Daisy": ["England, 12"],
+         "Antonio": ["Spain", 22],
+         "Dante": ["Italy", 25]}
+
+dicti.keys()
+
+dicti.values()
+
+dicti.update({"Daisy": ["England", 13]})
+dicti
+
+dicti.update({"Ahmet":["Turkey", 24]})
+dicti
+
+dir(dicti)
+dicti.pop("Antonio")
+dicti
+
+
+# Görev 5:
+
+l = [2, 13, 18, 93, 22]
+
+## örnekte sayıların tek-çift olması değil de, indexlerinin tek-çift olmasına göre,
+## tekler bir listeye, çiftler bir diğer listeye.
+
+
+1.çözüm:
+def func(a):
+    odd_list = []
+    even_list = []
+    for index, x in enumerate(a):
+        if index % 2 == 0:
+            even_list.append(x)
+        else:
+            odd_list.append(x)
+            
+    son = [odd_list, even_list]
+    return(son)
+
+func(l)
+
+2.çözüm:
+
+l = [2, 13, 18, 93, 22]
+tek_liste = []
+cift_liste = []
+
+def func2(a):
+    for(index in range(len(a)):
+        if a[index] % 2 == 0:
+            cift_liste.append(a[index])
+        else:
+            tek_liste.append(a[index])
+            
+    son = [tek_liste, cift_liste]
+    return(son)            
+
+func2(l)
+
+
+soru: tek sayıları bir listeye, çift sayıları bir listeye.
+
+l = [2,13,18,93,22]
+
+liste = [[], []]
+
+def func3(a):
+    for i in a:
+        if i % 2 == 0:
+            liste[0].append(i)
+        else:
+            liste[1].append(i)
+    return(liste)
+    
+func3(l)
+
+
+l = [2,13,18,93,22]
+liste4 = [[], []]
+
+[liste[0].append(i) if i % 2 == 0 else liste[1].append(i) for i in l]
+
+#soru: tek_liste: yasar, cift_liste:avci,
+    
+isim = ["y","a","a","v","s","c","a","i","r"]
+tek_liste = []
+cift_liste = []
+
+[cift_liste.append(isim[index]) if index % 2 == 0 else tek_liste.append(isim[index]) for index in range(len(isim))] 
+
+#enumerate ile çözümü:
+[cift_liste.append(isim[index]) if index % 2 == 0 else tek_liste.append(isim[index]) for index, x in enumerate(isim)]
+
+
+# Görev 6:
+
+import seaborn as sns
+df = sns.load_dataset("car_crashes")
+df.columns
+
+a = ["NUM_" + i.upper() if df[i].dtype != "O" else i.upper() for i in df.columns]
+a
+
+
+# Görev 7:
+
+import seaborn as sns
+df = sns.load_dataset("car_crashes")
+df.columns
+
+asd = [i.upper() + "_FLAG" if "NO" not in df.columns else i.upper() for i in df.columns]
+asd
+
+# Görev 8
+
+import seaborn as sns
+df = sns.load_dataset("car_crashes")
+df.columns
+
+og_list = ["abbrev", "no_previous"]
+
+new_cols = [i for i in df.columns if i not in og_list]
+new_cols
+
+new_df = df[new_cols]
+new_df.head()
